@@ -11,6 +11,7 @@ It is meant to run Thunderbird as the main browser-accessible application.
 - Selkies/Webtop sidebar hidden and locked
 - Persistent Thunderbird profile in the `/config` volume
 - Published image: `pthoelken/wonderbird:latest`
+- Multi-arch image for x86-64 PCs, Apple Silicon Macs, and 64-bit Raspberry Pi systems
 
 ## Quick Start
 

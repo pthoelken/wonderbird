@@ -34,7 +34,6 @@ jobs:
           images: ${{ env.IMAGE_NAME }}
           tags: |
             type=raw,value=latest
-            type=sha,prefix=sha-
           labels: |
             org.opencontainers.image.title=wonderbird
             org.opencontainers.image.description=Single-application Thunderbird webtop based on linuxserver/webtop alpine-i3.
@@ -47,6 +46,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
