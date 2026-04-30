@@ -1,0 +1,28 @@
+name: wonderbird
+
+services:
+  wonderbird:
+    image: pthoelken/wonderbird:latest
+    container_name: wonderbird
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
+      SUBFOLDER: /
+      TITLE: wonderbird
+      SELKIES_MANUAL_WIDTH: "1920"
+      SELKIES_MANUAL_HEIGHT: "1080"
+      MAX_RESOLUTION: "1920x1080"
+      SELKIES_USE_CSS_SCALING: "true"
+      SELKIES_UI_SHOW_SIDEBAR: "false|locked"
+      CUSTOM_USER: "pthoelken"
+      PASSWORD: "Asdf45"
+    ports:
+      - "3000:3000"
+    volumes:
+      - wonderbird:/config
+    shm_size: "1gb"
+    restart: unless-stopped
+
+volumes:
+  wonderbird:
