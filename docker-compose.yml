@@ -15,8 +15,9 @@ services:
       MAX_RESOLUTION: "1920x1080"
       SELKIES_USE_CSS_SCALING: "true"
       SELKIES_UI_SHOW_SIDEBAR: "false|locked"
-      CUSTOM_USER: "pthoelken"
-      PASSWORD: "Asdf45"
+      # Enable this variables here to enable http-basic-auth
+      # CUSTOM_USER: "user"
+      # PASSWORD: "ChangeMe"
     ports:
       - "3000:3000"
     volumes:
