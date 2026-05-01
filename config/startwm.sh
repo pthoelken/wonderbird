@@ -2,11 +2,15 @@
 
 set -e 
 
-# Disable Screensaver and enable full power mode
-setterm blank 0
-setterm powerdown 0
-xset s 0 0
+# Disable screensaver/powerdown inside the virtual display.
+setterm blank 0 || true
+setterm powerdown 0 || true
+xset s off || true
+xset -dpms || true
 
-thunderbird & 
-/usr/bin/pulseaudio --start
-/usr/bin/i3 > /dev/null 2>&1
+if [ -n "${WONDERBIRD_INITIAL_RESOLUTION:-}" ]; then
+    selkies-resize "$WONDERBIRD_INITIAL_RESOLUTION" || true
+fi
+
+keep-thunderbird-open &
+exec dbus-launch --exit-with-session /usr/bin/i3 -c /defaults/i3config > /dev/null 2>&1

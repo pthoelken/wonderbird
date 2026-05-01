@@ -1,17 +1,16 @@
 for_window [class="^.*"] border pixel 0
+for_window [class="(?i)^thunderbird$"] fullscreen enable
 set $mod Mod1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# Disable common desktop escape hatches in this single-app image.
+bindsym $mod+Return nop
 
-# kill focused window
-bindsym $mod+q kill
+bindsym $mod+q nop
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d nop
 
 # change focus
 bindsym $mod+j focus left

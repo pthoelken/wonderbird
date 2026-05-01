@@ -28,13 +28,6 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Europe/Berlin
-      SUBFOLDER: /
-      TITLE: wonderbird
-      SELKIES_MANUAL_WIDTH: "1920"
-      SELKIES_MANUAL_HEIGHT: "1080"
-      MAX_RESOLUTION: "1920x1080"
-      SELKIES_USE_CSS_SCALING: "true"
-      SELKIES_UI_SHOW_SIDEBAR: "false|locked"
       CUSTOM_USER: "pthoelken"
       PASSWORD: "change-me"
     ports:
@@ -68,13 +61,15 @@ Log in with `CUSTOM_USER` and `PASSWORD`.
 | --- | --- |
 | `PUID` / `PGID` | User and group ID used inside the container for file ownership. |
 | `TZ` | Time zone, for example `Europe/Berlin`. |
-| `TITLE` | Browser page title. |
 | `CUSTOM_USER` | Web login username. |
 | `PASSWORD` | Web login password. Change this before exposing the service. |
-| `SELKIES_MANUAL_WIDTH` / `SELKIES_MANUAL_HEIGHT` | Fixed desktop resolution. |
-| `MAX_RESOLUTION` | Maximum allowed resolution. |
-| `SELKIES_USE_CSS_SCALING` | Enables browser-side scaling. |
-| `SELKIES_UI_SHOW_SIDEBAR` | `false|locked` hides and locks the left Webtop sidebar. |
+
+Wonderbird ships opinionated image defaults for the webtop behavior: X11/i3 startup, 2K maximum framebuffer, 1920x1080 initial mode, CSS scaling for HiDPI clients, hidden Webtop sidebar, disabled unused Webtop features, and hardened window-manager close paths.
+You can still override any of these with environment variables in your compose file when a deployment needs different behavior.
+
+## Builds
+
+The Docker image is built and pushed by GitHub Actions on every push, on manual workflow dispatch, and weekly on Mondays at 03:17 UTC.
 
 ## Persistence
 
@@ -93,4 +88,4 @@ docker compose up -d
 ## Notes
 
 Thunderbird is watched by `keep-thunderbird-open`.
-If the window is closed, the process is started again automatically after a short delay.
+The i3 config removes borders, fullscreen-maximizes Thunderbird, and disables the common `Alt+q`, terminal, and launcher shortcuts. If the process is still closed through an in-app action, the watchdog starts it again after a short delay.
