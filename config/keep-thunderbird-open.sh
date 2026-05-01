@@ -6,5 +6,5 @@ while true; do
         thunderbird &
     fi
 
-    sleep 2
+    sleep 1
 done
