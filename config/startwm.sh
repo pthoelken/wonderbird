@@ -8,7 +8,7 @@ setterm powerdown 0 || true
 xset s off || true
 xset -dpms || true
 
-if [ -n "${WONDERBIRD_INITIAL_RESOLUTION:-}" ]; then
+if [ -n "${WONDERBIRD_INITIAL_RESOLUTION:-}" ] && [ -z "${SELKIES_MANUAL_WIDTH:-}" ] && [ -z "${SELKIES_MANUAL_HEIGHT:-}" ]; then
     selkies-resize "$WONDERBIRD_INITIAL_RESOLUTION" || true
 fi
 

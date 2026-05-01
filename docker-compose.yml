@@ -8,6 +8,9 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Europe/Berlin
+      SELKIES_MANUAL_WIDTH: 1920
+      SELKIES_MANUAL_HEIGHT: 1080
+      SELKIES_IS_MANUAL_RESOLUTION_MODE: "true|locked"
       # CUSTOM_USER: "user"
       # PASSWORD: "ChangeMe"
     ports:

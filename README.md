@@ -64,7 +64,8 @@ Log in with `CUSTOM_USER` and `PASSWORD`.
 | `CUSTOM_USER` | Web login username. |
 | `PASSWORD` | Web login password. Change this before exposing the service. |
 
-Wonderbird ships opinionated image defaults for the webtop behavior: X11/i3 startup, 2K maximum framebuffer, 1920x1080 initial mode, CSS scaling for HiDPI clients, hidden Webtop sidebar, disabled unused Webtop features, hidden Thunderbird titlebar controls, and hardened window-manager close paths.
+Wonderbird ships opinionated image defaults for the webtop behavior: X11/i3 startup, fixed 1920x1080 virtual display, CSS scaling for HiDPI clients, hidden Webtop sidebar, disabled unused Webtop features, hidden Thunderbird titlebar controls, and hardened window-manager close paths.
+The fixed virtual display avoids fragile XRandR resize attempts when a browser window moves between monitors with different resolutions, while CSS scaling keeps the UI readable on Retina/HiDPI clients.
 You can still override any of these with environment variables in your compose file when a deployment needs different behavior.
 
 ## Builds
