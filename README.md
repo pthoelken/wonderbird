@@ -28,7 +28,7 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Europe/Berlin
-      CUSTOM_USER: "pthoelken"
+      CUSTOM_USER: "username"
       PASSWORD: "change-me"
     ports:
       - "3000:3000"
