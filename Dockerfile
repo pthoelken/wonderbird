@@ -31,16 +31,22 @@ ENV SUBFOLDER="/" \
     HARDEN_OPENBOX="true" \
     DISABLE_CLOSE_BUTTON="true" \
     HARDEN_KEYBINDS="true" \
-    RESTART_APP="true"
+    RESTART_APP="true" \
+    GTK_CSD="0" \
+    MOZ_GTK_TITLEBAR_DECORATION="system"
 
 COPY config/i3config /defaults/i3config
 COPY config/startwm.sh /defaults/startwm.sh
 COPY config/keep-thunderbird-open.sh /usr/local/bin/keep-thunderbird-open
+COPY config/thunderbird-autoconfig.js /defaults/thunderbird-autoconfig.js
+COPY config/wonderbird.cfg /defaults/wonderbird.cfg
 
 RUN apk add --no-cache thunderbird
 
 RUN mkdir -p /config/.config/i3 \
     && cp /defaults/i3config /config/.config/i3/config \
+    && cp /defaults/thunderbird-autoconfig.js /usr/lib/thunderbird/defaults/pref/wonderbird-autoconfig.js \
+    && cp /defaults/wonderbird.cfg /usr/lib/thunderbird/wonderbird.cfg \
     && chmod +x /defaults/startwm.sh \
     && chmod +x /usr/local/bin/keep-thunderbird-open
 

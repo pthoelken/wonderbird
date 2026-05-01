@@ -64,7 +64,7 @@ Log in with `CUSTOM_USER` and `PASSWORD`.
 | `CUSTOM_USER` | Web login username. |
 | `PASSWORD` | Web login password. Change this before exposing the service. |
 
-Wonderbird ships opinionated image defaults for the webtop behavior: X11/i3 startup, 2K maximum framebuffer, 1920x1080 initial mode, CSS scaling for HiDPI clients, hidden Webtop sidebar, disabled unused Webtop features, and hardened window-manager close paths.
+Wonderbird ships opinionated image defaults for the webtop behavior: X11/i3 startup, 2K maximum framebuffer, 1920x1080 initial mode, CSS scaling for HiDPI clients, hidden Webtop sidebar, disabled unused Webtop features, hidden Thunderbird titlebar controls, and hardened window-manager close paths.
 You can still override any of these with environment variables in your compose file when a deployment needs different behavior.
 
 ## Builds
@@ -88,4 +88,4 @@ docker compose up -d
 ## Notes
 
 Thunderbird is watched by `keep-thunderbird-open`.
-The i3 config removes borders, fullscreen-maximizes Thunderbird, and disables the common `Alt+q`, terminal, and launcher shortcuts. If the process is still closed through an in-app action, the watchdog starts it again after a short delay.
+The image uses Thunderbird autoconfig to keep the titlebar under the window manager, while i3 removes borders, fullscreen-maximizes Thunderbird, and disables the common `Alt+q`, terminal, and launcher shortcuts. If the process is still closed through an in-app action, the watchdog starts it again after a short delay.
