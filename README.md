@@ -57,12 +57,12 @@ Log in with `CUSTOM_USER` and `PASSWORD`.
 
 ## Configuration
 
-| Variable | Purpose |
-| --- | --- |
+| Variable        | Purpose                                                         |
+| --------------- | --------------------------------------------------------------- |
 | `PUID` / `PGID` | User and group ID used inside the container for file ownership. |
-| `TZ` | Time zone, for example `Europe/Berlin`. |
-| `CUSTOM_USER` | Web login username. |
-| `PASSWORD` | Web login password. Change this before exposing the service. |
+| `TZ`            | Time zone, for example `Europe/Berlin`.                         |
+| `CUSTOM_USER`   | Web login username.                                             |
+| `PASSWORD`      | Web login password. Change this before exposing the service.    |
 
 Wonderbird ships opinionated image defaults for the webtop behavior: X11/i3 startup, fixed 1920x1080 virtual display, CSS scaling for HiDPI clients, hidden Webtop sidebar, disabled unused Webtop features, hidden Thunderbird titlebar controls, and hardened window-manager close paths.
 The fixed virtual display avoids fragile XRandR resize attempts when a browser window moves between monitors with different resolutions, while CSS scaling keeps the UI readable on Retina/HiDPI clients.
@@ -90,3 +90,7 @@ docker compose up -d
 
 Thunderbird is watched by `keep-thunderbird-open`.
 The image uses Thunderbird autoconfig to keep the titlebar under the window manager, while i3 removes borders, fullscreen-maximizes Thunderbird, and disables the common `Alt+q`, terminal, and launcher shortcuts. If the process is still closed through an in-app action, the watchdog starts it again after a short delay.
+
+## CI Bump
+
+.
